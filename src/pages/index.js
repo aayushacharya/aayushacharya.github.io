@@ -21,7 +21,7 @@ const IndexPage = () => (
         <Blob />
         <div className="absolute w-full h-full top-0 flex items-center justify-center">
           <div className="h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 rounded-full overflow-hidden">
-            <Image />
+            <img src='/images/the-avatar.png' />
           </div>
         </div>
       </div>
