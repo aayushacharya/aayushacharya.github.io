@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 import Layout from "./layout"
 import SEO from "./seo"
 import { BlogTitle, BlogTitleInfo, ExtLink } from "./atoms"
-import Newsletter from "./newsletter"
+import Contact from "./contact"
 import TOC from "./toc"
 
 const shortcodes = {
@@ -23,13 +23,15 @@ const PostLayout = ({ data: { mdx, ogImage } }) => {
         description={mdx.excerpt}
         ogImage={ogImage && ogImage.childImageSharp.fixed.src}
       />
-      <div className="flex justify-between mt-12 mb-12 relative">
+      <div className="flex justify-between mt-10 mb-10 relative">
         <article className="prose sm:prose md:prose-lg min-w-0 max-w-none tracking-normal">
           <div className="">
             <BlogTitleInfo
               date={mdx.frontmatter.date}
               datetime={mdx.frontmatter.datetime}
               timeToRead={mdx.timeToRead}
+              updated={mdx.frontmatter.updated}
+              updated_datetime={mdx.frontmatter.updated_datetime}
             />
             <BlogTitle>{mdx.frontmatter.title}</BlogTitle>
           </div>
@@ -43,7 +45,7 @@ const PostLayout = ({ data: { mdx, ogImage } }) => {
           </aside>
         )}
       </div>
-      <Newsletter />
+      <Contact />
     </Layout>
   )
 }
@@ -57,6 +59,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM Do YYYY")
         datetime: date
+        updated(formatString: "MMMM Do YYYY")
+        updated_datetime: updated
         description
         toc
       }

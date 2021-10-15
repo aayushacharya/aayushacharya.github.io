@@ -16,6 +16,7 @@ const Post = ({ post }) => {
           <div className="mt-2 sm:mt-0 text-sm sm:text-base text-accent sm:text-tertiary">
             {post.date}
           </div>
+          
         </div>
       </Link>
     </li>
@@ -36,6 +37,7 @@ const PostList = ({ showHeading }) => {
               title
               date(formatString: "MMMM Do YYYY")
               published
+              updated(formatString: "MMMM Do YYYY")
               tags
               description
             }
@@ -60,6 +62,7 @@ const PostList = ({ showHeading }) => {
             slug: node.fields.slug,
             title: node.frontmatter.title,
             date: node.frontmatter.date,
+            updated: node.frontmatter.updated,
             description: node.frontmatter.description,
             tags: node.frontmatter.tags,
           }

@@ -25,13 +25,14 @@ const Footer = _ => {
               className="text-xs tracking-wider self-center md:self-end"
               aria-label="Copyright"
             >
-              © 2021 Jeff Jadulco. All Rights Reserved.
+              © 2021 Aayush Acharya • Forked from <a href="https://github.com/jeffjadulco/jeffjadulco.com" target='__blank'>Jeff Jadulco</a>
             </span>
             <div className="flex flex-row items-center space-x-4 justify-center md:justify-end">
               <span>
+                
                 <a
-                  href="mailto:hey@jeffjadulco.com"
-                  aria-label="Email hey@jeffjadulco.com"
+                  href="mailto:ayushacharya99@gmail.com"
+                  aria-label="Email ayushacharya99@gmail.com"
                   title="Email"
                 >
                   <svg
@@ -47,7 +48,7 @@ const Footer = _ => {
               </span>
               <span>
                 <a
-                  href="https://github.com/jeffjadulco"
+                  href="https://github.com/ayushacharya99@gmail.com"
                   aria-label="Visit GitHub profile"
                   title="Visit GitHub profile"
                   target="_blank"
@@ -85,7 +86,7 @@ const Footer = _ => {
               </span> */}
               <span>
                 <a
-                  href="https://twitter.com/jeffjadulco"
+                  href="https://twitter.com/aayushacharya_"
                   aria-label="Visit Twitter profile"
                   title="Visit Twitter profile"
                   target="_blank"
@@ -104,7 +105,7 @@ const Footer = _ => {
               </span>
               <span>
                 <a
-                  href="https://www.instagram.com/jeffjadulco/"
+                  href="https://www.instagram.com/aayushacharya_/"
                   aria-label="Visit Instagram profile"
                   title="Visit Instagram profile"
                   target="_blank"

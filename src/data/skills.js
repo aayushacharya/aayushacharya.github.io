@@ -1,48 +1,68 @@
 export default [
   {
-    label: "Game Development Skills",
+    label: "AI and Cloud services",
     description:
-      "Skills I acquired during 5+ years of being in game development industry",
+      "Skills I acquired using Azure and taking courses and performing research on Deep Learning.",
     categories: [
       {
-        title: "Unreal Engine 4 Game Development",
+        title: "Deep Learning",
         skills: [
-          "C++ and Blueprint Programming",
-          "UMG and Complex UI Systems",
-          "Multiplayer and Network Programming",
-          "3rd Party Library and API Integration",
-          "Online Services Integration",
+          "TensorFlow and PyTorch frameworks",
+          "Convolution and recurrent neural networks",
+          "LSTMs and Transformers",
+          "Hyperparameter tuning, regularization and optimization",
+          "Computer vision and ASRs",
         ],
       },
       {
-        title: "Unity Game Development",
+        title: "Cloud services",
         skills: [
-          "C# Programming",
-          "Complex System Design and Architecture",
-          "Complex UI Systems",
-          "Editor Tooling",
-          "3rd Party Library and API Integration",
+          "Azure services",
+          "Virtual networks",
+          "Cost management techniques",
+          "VMs and basic deployment pipelines",
         ],
       },
     ],
   },
   {
-    label: "Web Development Skills",
-    description: "Skills I learned during the quarantine",
+    label: "Web Development",
+    description: "Skills I learned during my 4+ years as a CS student",
     categories: [
       {
-        title: "Front-end Development",
+        title: "Frontend Development",
         skills: [
-          "React: CRA, Gatsby, and Next",
-          "Tailwind CSS and Component Libraries",
-          "Jest & React Testing Library",
-          "Design Systems w/Storybook",
-          "SEO-friendly and Accessible Designs",
+          "React: CRA, and Gatsby",
+          "VanillaJS",
+          "Tailwind CSS",
         ],
       },
       {
         title: "Backend Development",
-        skills: ["Express", "Socket.io", "Firebase and Firestore"],
+        skills: ["Express", "Django"],
+      },
+    ],
+  },
+  {
+    label: "Miscellaneous",
+    description: "Skills I have a basic understanding of, but a long way to master",
+    categories: [
+      {
+        title: "Native apps design and development",
+        skills: [
+          "Flutter for UI design",
+          "Desgin using Figma",
+          "Development using React Native",
+        ],
+      },
+      {
+        title: "Linux based skills",
+        skills: [
+          "Shell scripting",
+          "Cron job scheduling",
+          "SSH and tmux",
+          "Editing with Vim and Nano"
+        ],
       },
     ],
   },

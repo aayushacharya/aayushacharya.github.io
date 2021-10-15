@@ -1,14 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Jeff Jadulco`,
-    description: `Jeff Jadulco is a game and javascript developer`,
-    author: `Jeff Jadulco`,
-    siteUrl:
-      process.env.DEV_ENV === 1
-        ? `https://dev.jeffjadulco.com`
-        : `https://jeffjadulco.com`,
-    image: `/images/og-card.png`,
-    twitterUsername: `@jeffjadulco`,
+    title: `Aayush`,
+    description: `Aayush Acharya is a full stack web developer`,
+    author: `Aayush Acharya`,
+    siteUrl: `https://aayushacharya.com.np`,
+    image: `/images/the-avatar.png`,
+    twitterUsername: `@aayushacharya_`,
   },
   plugins: [
     {
@@ -38,8 +35,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Jeff Jadulco`,
-        short_name: `Jeff Jadulco`,
+        name: `Aayush Acharya`,
+        short_name: `Aayush`,
         start_url: `/`,
         background_color: `#2d3748`,
         theme_color: `#81E6D9`,
@@ -53,8 +50,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://jeffjadulco.com",
-        sitemap: "https://jeffjadulco.com/sitemap.xml",
+        host: "https://aayushacharya.com.np",
+        sitemap: "https://aayushacharya.com.np/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
         env: {
           development: {
@@ -70,7 +67,7 @@ module.exports = {
       resolve: `gatsby-plugin-env-variables`,
       options: {
         whitelist: [
-          "GATSBY_GOOGLE_SITE_VERIFICATION, GOOGLE_ANALYTICS_TRACKING_ID, DEV_ENV",
+          "GATSBY_GOOGLE_SITE_VERIFICATION, GOOGLE_ANALYTICS_TRACKING_ID",
         ],
       },
     },

@@ -22,14 +22,21 @@ export const BlogTitle = ({ children }) => {
   )
 }
 
-export const BlogTitleInfo = ({ timeToRead, date, datetime }) => {
+export const BlogTitleInfo = ({ timeToRead, date, datetime, updated = false, updated_datetime }) => {
+  const update_comp=(
+  <span>
+    <span> • </span>
+    <span>Last updated on <time dateTime={updated_datetime}>{updated}</time></span>
+  </span>)
+
   return (
     <div className="mb-2 text-sm text-tertiary tracking-normal">
+      <span>{timeToRead} minute read</span>
+      <span> • </span>
       <span>
         <time dateTime={datetime}>{date}</time>
       </span>
-      <span> • </span>
-      <span>{timeToRead} minute read</span>
+      {updated ? update_comp : ""}
     </div>
   )
 }
