@@ -23,16 +23,16 @@ function SEO({ description, lang, meta, title, blog, ogImage }) {
             twitterUsername
           }
         }
-        image: file(relativePath: { eq: "og-card.png" }) {
+        image: file(relativePath: { eq: "og-card.webp" }) {
           childImageSharp {
-            fixed(width: 1280) {
+            fixed(width: 1200) {
               src
             }
           }
         }
-        blogImage: file(relativePath: { eq: "og-card-blog.png" }) {
+        blogImage: file(relativePath: { eq: "og-card-blog.webp" }) {
           childImageSharp {
-            fixed(width: 1280) {
+            fixed(width: 1200) {
               src
             }
           }
@@ -50,9 +50,7 @@ function SEO({ description, lang, meta, title, blog, ogImage }) {
 
   const seo = {
     title: title || defaultTitle,
-    titleTemplate: title
-      ? `%s | ${defaultTitle}`
-      : `${defaultTitle} | 🇳🇵`,
+    titleTemplate: title ? `%s | ${defaultTitle}` : `${defaultTitle} | 🇳🇵`,
     description: description || defaultDescription,
     image: `${siteUrl}${
       blog
