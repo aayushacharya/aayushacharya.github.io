@@ -23,14 +23,14 @@ function SEO({ description, lang, meta, title, blog, ogImage }) {
             twitterUsername
           }
         }
-        image: file(relativePath: { eq: "og-card.webp" }) {
+        image: file(relativePath: { eq: "og-card.png" }) {
           childImageSharp {
             fixed(width: 1200) {
               src
             }
           }
         }
-        blogImage: file(relativePath: { eq: "og-card-blog.webp" }) {
+        blogImage: file(relativePath: { eq: "og-card-blog.png" }) {
           childImageSharp {
             fixed(width: 1200) {
               src
