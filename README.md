@@ -1,6 +1,5 @@
 # [aayushacharya.com.np](https://aayushacharya.com.np)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![Twitter Follow](https://img.shields.io/twitter/follow/aayushacharya_?style=social)
 
 My personal website running on Gatsby.
@@ -11,7 +10,6 @@ My personal website running on Gatsby.
 - [Gatsby](https://www.gatsbyjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Storybook](https://storybook.js.org/)
-
 
 ## License
 
