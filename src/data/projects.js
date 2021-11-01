@@ -5,7 +5,7 @@ export default [
     stack: ["TensorFlow", "Flutter"],
     tags: ["Deep Learning", "Computer Vision"],
     description:
-      "A cross platform mobile application made for farmers and built using Flutter for classifying pests. It consists of a TensorFlow model built with VGG-19 and made suitable for deployment on mobile devices using TensorFlow Lite Converter.",
+      "A cross platform mobile application tailored for farmers to identify pests infesting their yield, and suggesting the appropriate biological control method. It consists of a TensorFlow model built with VGG-19 and made suitable for deployment on mobile devices using TensorFlow Lite Converter.",
     year: "2021",
   },
   {
