@@ -1,5 +1,6 @@
+require("dotenv").config()
 module.exports = {
-  pathPrefix: '/',
+  pathPrefix: "/",
   siteMetadata: {
     title: `Aayush`,
     description: `Aayush Acharya is a full stack web developer`,
@@ -67,9 +68,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        whitelist: [
-          "GATSBY_GOOGLE_SITE_VERIFICATION, GOOGLE_ANALYTICS_TRACKING_ID",
-        ],
+        whitelist: ["GOOGLE_ANALYTICS_TRACKING_ID"],
       },
     },
     {
