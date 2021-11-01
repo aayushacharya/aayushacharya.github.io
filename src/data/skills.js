@@ -31,11 +31,7 @@ export default [
     categories: [
       {
         title: "Frontend Development",
-        skills: [
-          "React: CRA, and Gatsby",
-          "VanillaJS",
-          "Tailwind CSS",
-        ],
+        skills: ["React: CRA, and Gatsby", "VanillaJS", "Tailwind CSS"],
       },
       {
         title: "Backend Development",
@@ -45,7 +41,8 @@ export default [
   },
   {
     label: "Miscellaneous",
-    description: "Skills I have a basic understanding of, but a long way to master",
+    description:
+      "Skills I have a basic understanding of, but a long way to master",
     categories: [
       {
         title: "Native apps design and development",
@@ -60,8 +57,8 @@ export default [
         skills: [
           "Shell scripting",
           "Cron job scheduling",
-          "SSH and tmux",
-          "Editing with Vim and Nano"
+          "SSH, tmux, rsync",
+          "Editing with Vim and Nano",
         ],
       },
     ],
