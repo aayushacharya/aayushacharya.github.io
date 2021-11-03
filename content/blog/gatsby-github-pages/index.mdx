@@ -1,6 +1,7 @@
 ---
 title: "Deploying Gatsby site on GitHub Pages"
 date: 2021-11-03
+updated: 2021-11-03
 published: true
 tags: ["gatsby", "deployment"]
 description: This is a tutorial depicting multiple ways to deploy a Gatsby site on GitHub Pages
@@ -28,8 +29,8 @@ for this course of action first.
 ## How SSG in Gatsby works
 
 Gatsby is a free and open source framework based on React that helps developers build blazing
-fast websites and apps. One of the primary use cases of Gatsby is Static Site Generation(SSG), which
-makes it useful for deploying personal websites with more granular control.
+fast websites and apps. One of the primary use case of Gatsby is Static Site Generation(SSG), which
+is useful for deploying personal websites with more granular control.
 
 Typical Gatsby directory structure is as follows.
 
@@ -105,7 +106,7 @@ git push origin main
 You can immediately see the shortcomings of this approach. Creating two repositories for the
 same project is not the best practice. Moreover, the shell script would not run on Windows OS
 without major workarounds. There is the option of writing a custom script `deploy.js` but then
-again, it requires effort for something which is not the best practice. Which brings us to the
+again, it requires effort for something with tidy alternatives. Which brings us to the
 second approach.
 
 ### The gh-pages package
