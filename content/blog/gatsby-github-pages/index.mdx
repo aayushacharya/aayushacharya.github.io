@@ -1,0 +1,215 @@
+---
+title: "Deploying Gatsby site on GitHub Pages"
+date: 2021-11-03
+published: true
+tags: ["gatsby", "deployment"]
+description: This is a tutorial depicting multiple ways to deploy a Gatsby site on GitHub Pages
+toc: true
+seoImage: "og-gatsby-github-pages.png"
+---
+
+import { Callout } from "../../../src/components/atoms.js"
+
+There are a couple of ways to deploy a Gatsby site to GitHub pages ranging from naive approaches
+to something that requires a bit of work but is the recommended way. In this tutorial I'll walk you
+through three approaches I find to be useful.
+
+Do check out the official Gatsby [documentation](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/)
+for this course of action first.
+
+<Callout>
+
+💡 This tutorial assumes that you have a basic understanding of Gatsby.
+
+🧾 One of the approaches uses GitHub Actions, follow their [documentation](https://docs.github.com/en/actions) to perform CI jobs.
+
+</Callout>
+
+## How SSG in Gatsby works
+
+Gatsby is a free and open source framework based on React that helps developers build blazing
+fast websites and apps. One of the primary use cases of Gatsby is Static Site Generation(SSG), which
+makes it useful for deploying personal websites with more granular control.
+
+Typical Gatsby directory structure is as follows.
+
+```
+/
+|-- /.cache
+|-- /plugins
+|-- /public
+|-- /src
+    |-- /api
+    |-- /pages
+    |-- /templates
+    |-- html.js
+|-- /static
+|-- gatsby-config.js
+|-- gatsby-node.js
+|-- gatsby-ssr.js
+|-- gatsby-browser.js
+```
+
+When you run `gatsby build` command, the public directory gets populated with static files
+optimized for production. The content of the public directory is what you will want to deploy
+in your website.
+
+## Deployment strategies
+
+You can navigate to the next two strategies from the table of contents in the top right hand corner.
+
+### Naive approach
+
+<Callout>
+  🚫 Do not use this approach, it only depicts why the next two strategies are
+  important.
+</Callout>
+
+In a Gatsby project the `public` directory is usually added in the `.gitignore` file. But there
+is no stopping from intializing the public directory as a git repo and setting its remote to your
+GitHub repository.
+
+```zsh
+git init public -b main
+cd public
+git add .
+git commit -m"First commit"
+git remote add origin <REMOTE_URL>
+git remote -v
+git push origin main
+```
+
+You can use the `gatsby build` command to generate the static files in the `public` directory.
+Every time you have to deploy, you can add, commit and push the files inside `public` directory.
+One can also write a custom deployment script in `package.json`, which executes whenever
+`npm run deploy` is executed in Gatsby project's root directory.
+
+```js
+"scripts":{
+    ...,
+    "deploy": "gatsby build --prefix-paths && ./deploy.sh",
+}
+```
+
+where `deploy.sh` contains,
+
+```bash
+#!/bin/bash
+
+cd public/
+git add .
+git commit -m"Updated"
+git push origin main
+```
+
+You can immediately see the shortcomings of this approach. Creating two repositories for the
+same project is not the best practice. Moreover, the shell script would not run on Windows OS
+without major workarounds. There is the option of writing a custom script `deploy.js` but then
+again, it requires effort for something which is not the best practice. Which brings us to the
+second approach.
+
+### The gh-pages package
+
+<Callout>
+  👍 This is the most convenient approach. Just follow the steps and you'll be
+  golden.{" "}
+</Callout>
+
+GitHub Pages provides the functionality of publishing a specific branch for your website.
+Go to your repository, and navigate to `Settings > Pages > Source` where you can set the branch
+from which the site is built. Now to push the static files to GitHub pages, we can either spend
+time and effort to write custom scripts, which when done right does offer flexibility.
+
+But the easiest way is by using the [gh-pages](https://github.com/tschaub/gh-pages) package.
+
+```shell
+npm install gh-pages --save-dev
+```
+
+Then similar to what we did on the naive approach, we can add custom script on `package.json` file
+which executes on `npm run deploy`.
+
+```js
+"scripts":{
+    ...,
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages",
+}
+```
+
+See the article, [Deploying to a path on GitHub Pages](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/#deploying-to-a-path-on-github-pages)
+on the official Gatsby docs for sites deployed at path like `username.github.io/reponame/`
+
+### GitHub Actions
+
+<Callout>
+  ✅ This is the recommended approach but does require basic CI understanding.
+</Callout>
+
+If you are new to GitHub Actions, it helps automate, customize, and execute
+your software development workflows right in your repository. You can discover, create,
+and share actions to perform any job you'd like, including CI/CD, and combine actions
+in a completely customized workflow.
+
+First, we must create a **YAML** file defining workflow configuration in the
+`.github/workflows` directory. A workflow is a configurable automated process
+made up of one or more jobs. A basic workflow configuration file for Gatsby CI is given below.  
+[Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions)
+provides extensive syntactical information for workflow configuration file.
+
+```yaml
+name: Gatsby CI
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: public
+          repositoryName: deploy_to_repo #Skip this if deploying to same repo
+          token: ${{ secrets.ACCESS_TOKEN }} #Skip this when deploying to same repo
+```
+
+Okay, so plenty of things are happening in this YAML file. First, this automated process is
+performed on a **push** to the `main` branch or on a **pull request** is performed. If these events
+occur, it then runs a job on the latest Ubuntu build, and performs installation, build and test
+on 3 different node versions.
+
+<Callout>
+
+❗ It should be noted that **_build_** and **_test_** scripts should be present in
+`package.json` file. Build scripts must in some form call the `gatsby build` command.
+`- run: npm test` can be removed if no test cases have been written, but it is good
+practice to write test cases for your project as it verifies that both your recent push
+or PRs do not break your app's functionality.
+
+</Callout>
+
+Finally the contents of `public` folder is pushed to the `gh-pages` branch. This is a basic
+work configuration file. For pushing to a different repository, personal access token must
+be created from [here](https://github.com/settings/tokens). Copy that token and set it
+in `Settings > Secrets > New repository secret` your GitHub repository. This can now be accessed through
+`${{ secrets.SECRET_NAME }}` in the YAML file.
