@@ -1,7 +1,7 @@
 ---
 title: "Deploying Gatsby site on GitHub Pages"
 date: 2021-11-03
-updated: 2021-11-03
+updated: 2021-11-04
 published: true
 tags: ["gatsby", "deployment"]
 description: This is a tutorial depicting multiple ways to deploy a Gatsby site on GitHub Pages
@@ -11,8 +11,7 @@ seoImage: "og-gatsby-github-pages.png"
 
 import { Callout } from "../../../src/components/atoms.js"
 
-There are a couple of ways to deploy a Gatsby site to GitHub pages ranging from naive approaches
-to something that requires a bit of work but is the recommended way. In this tutorial I'll walk you
+There are a couple of ways to deploy a Gatsby site to GitHub pages. In this tutorial I'll walk you
 through three approaches I find to be useful.
 
 Do check out the official Gatsby [documentation](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/how-gatsby-works-with-github-pages/)
@@ -194,23 +193,23 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }} #Skip this when deploying to same repo
 ```
 
-Okay, so plenty of things are happening in this YAML file. First, this automated process is
-performed on a **push** to the `main` branch or on a **pull request** is performed. If these events
-occur, it then runs a job on the latest Ubuntu build, and performs installation, build and test
-on 3 different node versions.
+Okay, so plenty of things need explaining in this YAML file. First, this automated process is
+performed on a **push** or on a **pull request** to the `main` branch. If these events
+are triggered, then a job is run on the latest Ubuntu build, performing **installation**,
+**build** and **test** on the 3 specified node versions.
 
 <Callout>
 
 ❗ It should be noted that **_build_** and **_test_** scripts should be present in
 `package.json` file. Build scripts must in some form call the `gatsby build` command.
 `- run: npm test` can be removed if no test cases have been written, but it is good
-practice to write test cases for your project as it verifies that both your recent push
-or PRs do not break your app's functionality.
+practice to write test cases for your project as it validates whether your recent push
+or PRs break your app's functionality.
 
 </Callout>
 
 Finally the contents of `public` folder is pushed to the `gh-pages` branch. This is a basic
 work configuration file. For pushing to a different repository, personal access token must
 be created from [here](https://github.com/settings/tokens). Copy that token and set it
-in `Settings > Secrets > New repository secret` your GitHub repository. This can now be accessed through
-`${{ secrets.SECRET_NAME }}` in the YAML file.
+in `Settings > Secrets > New repository secret` your GitHub repository.
+This can now be accessed through `${{ secrets.SECRET_NAME }}` in the YAML file.
