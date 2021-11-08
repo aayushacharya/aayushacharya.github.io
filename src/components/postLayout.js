@@ -5,7 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import SEO from "./seo"
-import { BlogTitle, BlogTitleInfo, ExtLink } from "./atoms"
+import { BlogTags, BlogTitle, BlogTitleInfo, ExtLink, TagIcon } from "./atoms"
 import Contact from "./contact"
 import TOC from "./toc"
 
@@ -34,6 +34,10 @@ const PostLayout = ({ data: { mdx, ogImage } }) => {
               updated_datetime={mdx.frontmatter.updated_datetime}
             />
             <BlogTitle>{mdx.frontmatter.title}</BlogTitle>
+
+            <BlogTags tags={mdx.frontmatter.tags}>
+              <TagIcon />
+            </BlogTags>
           </div>
           <MDXProvider components={shortcodes}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -60,6 +64,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM Do YYYY")
         datetime: date
         updated(formatString: "MMMM Do YYYY")
+        tags
         updated_datetime: updated
         description
         toc
