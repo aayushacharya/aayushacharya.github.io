@@ -86,7 +86,6 @@ body {
   overflow-x: hidden;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  @apply antialiased;
 }
 
 .full-width-container {
