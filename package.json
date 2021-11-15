@@ -43,7 +43,7 @@
     "@storybook/addon-links": "^6.3.12",
     "@storybook/addons": "^6.3.12",
     "@storybook/react": "^6.3.12",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.3",
     "cross-env": "^7.0.2",
     "gh-pages": "^3.2.3",
     "prettier": "2.4.1",
