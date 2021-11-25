@@ -67,6 +67,7 @@ function SEO({ description, lang, meta, title, blog, ogImage }) {
       }}
       title={seo.title}
       titleTemplate={seo.titleTemplate}
+      httpEquiv={"Content-Security-Policy"}
       meta={[
         {
           name: `description`,
@@ -126,6 +127,10 @@ function SEO({ description, lang, meta, title, blog, ogImage }) {
           name: seo.title,
         })}
       </script>
+      <meta
+        httpEquiv="Content-Security-Policy"
+        content="upgrade-insecure-requests"
+      />
     </Helmet>
   )
 }
