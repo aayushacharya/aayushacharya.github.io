@@ -10,7 +10,7 @@
     "@tailwindcss/typography": "^0.2.0",
     "chokidar": "^3.5.2",
     "core-js": "^3.20.2",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.0",
     "gatsby": "^2.21.37",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-env-variables": "^2.1.0",
