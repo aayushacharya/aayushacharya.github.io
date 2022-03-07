@@ -42,7 +42,7 @@
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^6.4.18",
     "@storybook/addons": "^6.4.19",
-    "@storybook/react": "^6.4.18",
+    "@storybook/react": "^6.4.19",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.2",
     "gh-pages": "^3.2.3",
