@@ -73,7 +73,7 @@ export default [
     stack: ["SFML"],
     tags: ["Game", "Arcade"],
     description:
-      "It is a war game which consists of a plane which is assigned to destroy everything and anything within its sight. But of course, with war, there are always constraints, and, in this game, props must be destroyed as fast as possible because the fuel is running low.",
+      "You are the only remaining pilot of a fighter jet assigned to obliterate everything and anything within your sight. Apply your projectile motion wits and be as accurate as possible while throwing the missiles. But beware ! The fuel is running low.",
     year: "2019",
     links: [
       {
