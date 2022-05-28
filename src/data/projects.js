@@ -1,5 +1,14 @@
 export default [
   {
+    title: "ASR and Classification of Nepali Speech",
+    subtitle: "Major Project",
+    stack: ["React", "Fast API"],
+    tags: ["Deep Learning", "NLP","wav2vec","ASR"],
+    description:
+      "An integrated ASR and NLP system that generates transcripts and relevant category for a given Nepali audio using a combination of self-supervised wav2vec2 model and CTC along with BERT based MuRIL model for Indic languages for further categorization into relevant categories like Sports, Politics, etc.",
+    year: "2022",
+  },
+  {
     title: "Pest Classification using Deep Learning",
     subtitle: "Minor Project",
     stack: ["TensorFlow", "Flutter"],
@@ -66,6 +75,12 @@ export default [
     description:
       "It is a war game which consists of a plane which is assigned to destroy everything and anything within its sight. But of course, with war, there are always constraints, and, in this game, props must be destroyed as fast as possible because the fuel is running low.",
     year: "2019",
+    links: [
+      {
+        label: "GitHub",
+        url: "https://github.com/aayushacharya/Sky-Bomber",
+      },
+    ],
   },
   {
     title: "Flood Alert System",
@@ -77,7 +92,7 @@ export default [
     year: "2019",
     links: [
       {
-        label: "Github",
+        label: "GitHub",
         url: "https://github.com/aayushacharya/Flood-Alert-System",
       },
     ],
@@ -92,7 +107,7 @@ export default [
     year: "2018",
     links: [
       {
-        label: "Github",
+        label: "GitHub",
         url: "https://github.com/aayushacharya/Sudoku-Solver",
       },
     ],
