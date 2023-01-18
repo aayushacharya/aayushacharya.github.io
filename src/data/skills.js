@@ -26,17 +26,18 @@ export default [
     ],
   },
   {
-    label: "Web Development",
-    description: "Skills I learned during my 4+ years as a CS student",
+    label: "Software Development",
+    description: "Skills I learned through work and 4 years as a CSE student",
     categories: [
       {
-        title: "Frontend Development",
-        skills: ["React: CRA, and Gatsby", "VanillaJS", "Tailwind CSS"],
+        title: "Backend Development",
+        skills: ["Go: Echo and gqlgen frameworks", "OpenAPI specifications", "Goroutines and message queues","Docker and CI/CD pipelines","ISO20022 payment standards"],
       },
       {
-        title: "Backend Development",
-        skills: ["Express", "Django"],
+        title: "Frontend Development",
+        skills: ["React: CRA, and Gatsby", "Tailwind CSS","Material UI"],
       },
+      
     ],
   },
   {
@@ -53,7 +54,7 @@ export default [
         ],
       },
       {
-        title: "Linux based skills",
+        title: "Linux skills",
         skills: [
           "Shell scripting",
           "Cron job scheduling",
