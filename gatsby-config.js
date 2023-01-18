@@ -3,7 +3,7 @@ module.exports = {
   pathPrefix: "/",
   siteMetadata: {
     title: `Aayush`,
-    description: `Aayush Acharya is a full stack web developer`,
+    description: `Aayush Acharya is a software developer`,
     author: `Aayush Acharya`,
     siteUrl: `https://aayushacharya.com.np`,
     image: `/images/the-avatar.png`,
