@@ -14,18 +14,18 @@ const About = () => {
         <article className="prose">
           <h2>About Me</h2>
           <p>
-            I'm Aayush Acharya, currently studying computer engineering at{" "}
+            I'm Aayush Acharya, a Software Developer working at{" "} <ExtLink link="https://raralabs.com">RARA Labs</ExtLink> and a Computer Engineer alumni of{" "}
             <ExtLink link="http://pcampus.edu.np/">IOE, Pulchowk Campus</ExtLink>. My goal is to
-            provide a meaningful contribution through research to the Deep Learning community and
-            contribute to open source projects.
+            provide a meaningful contribution through research to the software engineering community, often with the aid of Deep Learning.
           </p>
           <p>
-            Currently, I am in the Editorial Team of The Zerone magazine serving as the Event Head.  
-            My responsibilities include covering tech events organized by <ExtLink link="http://locus.pcampus.edu.np">LOCUS</ExtLink>; an umbrella organization led by undergraduate students
-            of IOE Pulchowk Campus. I am also a Beta member of the <ExtLink link="https://studentambassadors.microsoft.com/certificate/b4737c20-7e60-4e74-81ba-b97a45954a0f">Microsoft Student Learn Ambassador (MLSA)</ExtLink>. 
+            Currently, I am working in RARA Labs, carrying out projects in GraphQL and REST API using Go. 
+            Additionaly, I have also designed independent execution threads using goroutines, worked with asynchronous messaging using RabbitMQ, constructed ISO20022 financial standard messages 
+            and devised CI/CD pipelines. Furthermore, I have built ML pipelines for identifying medical harms based on EMR data.
+            I am also a Beta member of the <ExtLink link="https://studentambassadors.microsoft.com/certificate/b4737c20-7e60-4e74-81ba-b97a45954a0f">Microsoft Student Learn Ambassador (MLSA)</ExtLink>. 
             As MLSAs, we serve as the community leaders, organizing workshops,
             hands-on training and educational seminars aided by Microsoft community experts. 
-            I also serve as a member of Engineering Youth Network, <ExtLink link="https://amnestynepal.org">Amnesty International Nepal</ExtLink>. 
+            I also served as a member of Engineering Youth Network, <ExtLink link="https://amnestynepal.org">Amnesty International Nepal</ExtLink>. 
             We strive to raise our voice against injustice and condemn human rights violations.
           </p>
         </article>
