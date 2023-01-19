@@ -20,8 +20,10 @@ const About = () => {
           </p>
           <p>
             Currently, I am working in RARA Labs, carrying out projects in GraphQL and REST API using Go. 
-            Additionaly, I have also designed independent execution threads using goroutines, worked with asynchronous messaging using RabbitMQ, constructed ISO20022 financial standard messages 
-            and devised CI/CD pipelines. Furthermore, I have built ML pipelines for identifying medical harms based on EMR data.
+            Here, I have designed independent execution threads using goroutines, worked with asynchronous messaging using RabbitMQ, constructed ISO20022 financial standard
+            digitally signed messages and devised CI/CD pipelines. I also undertook the role of a Research Intern in <ExtLink link="https://www.naamii.org.np/">NAAMII</ExtLink>. 
+            There I worked on building a Nepali automatic speech recognition using Wav2Vec 2.0, for learning the speech representations in a low resource setting and MURIL, a BERT model pretrained on indic languages, as a classification model in my final year project thesis supervised by Bishesh Khanal, Ph.D. as a research intern at NAAMII.
+            Furthermore, I also built ML pipelines for identifying medical harms based on EMR data in RARA Labs.
             I am also a Beta member of the <ExtLink link="https://studentambassadors.microsoft.com/certificate/b4737c20-7e60-4e74-81ba-b97a45954a0f">Microsoft Student Learn Ambassador (MLSA)</ExtLink>. 
             As MLSAs, we serve as the community leaders, organizing workshops,
             hands-on training and educational seminars aided by Microsoft community experts. 
