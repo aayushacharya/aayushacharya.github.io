@@ -1,5 +1,32 @@
 export default [
   {
+    title: "R2PX",
+    subtitle: "Industry",
+    stack: ["Go", "RabbitMQ", "Docker","CI/CD"],
+    tags: ["API Service","Backend"],
+    description:
+      "Constructed secure, digitally signed messages using the ISO20022 financial standard to protect the integrity of transactions, leveraging RabbitMQ's asynchronous messaging for efficient and reliable communication between system components. Established robust CI/CD pipelines, automating integration and deployment for faster time-to-market and improved development efficiency. Spearheaded the design and implementation of independent execution threads in Go, optimizing performance and scalability for the R2PX project.",
+    year: "2023",
+  },
+  {
+    title: "Intellix",
+    subtitle: "Industry",
+    stack: ["Python", "ML","Flask","Go","GraphQL"],
+    tags: ["Machine Learning","Backend"],
+    description:
+      "Developed Intellix, a cutting-edge healthcare management product revolutionizing patient allocation across hospitals, wards, and beds. Leveraged comprehensive patient data, including demographics and EMR records, to build predictive models for early sepsis detection. Integrated sepsis prediction algorithms to enhance patient safety, enabling timely intervention and treatment. Spearheaded the creation of robust task assignment functionalities, including checklists and vital measurements, ensuring efficient healthcare workflows.",
+    year: "2023",
+  },
+  {
+    title: "SSG ",
+    subtitle: "Industry",
+    stack: ["Go", "GCP","App Engine","Cloud functions"],
+    tags: ["Backend", "Google Cloud","Serverless"],
+    description:
+      "Engineered a serverless static site generator (SSG) in GCP, leveraging robust infrastructure. Implemented efficient templating with Go syntax for dynamic content injection. Enabled seamless publishing with a serverless architecture, utilizing App Engine and Pub/Sub with Cloud Functions. Streamlined site creation, injection, and deployment for optimal efficiency.",
+    year: "2023",
+  },
+  {
     title: "ASR and Classification of Nepali Speech",
     subtitle: "Major Project",
     stack: ["React", "Fast API"],
