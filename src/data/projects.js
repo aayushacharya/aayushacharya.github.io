@@ -20,7 +20,7 @@ export default [
   {
     title: "SSG ",
     subtitle: "Industry",
-    stack: ["Go", "GCP","App Engine","Cloud functions"],
+    stack: ["Go", "GCP","Firestore","App Engine","Cloud functions"],
     tags: ["Backend", "Google Cloud","Serverless"],
     description:
       "Engineered a serverless static site generator (SSG) in GCP, leveraging robust infrastructure. Implemented efficient templating with Go syntax for dynamic content injection. Enabled seamless publishing with a serverless architecture, utilizing App Engine and Pub/Sub with Cloud Functions. Streamlined site creation, injection, and deployment for optimal efficiency.",
