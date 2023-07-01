@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink } from "./atoms"
+import { ExtLink, NavLink } from "./atoms"
 
 const Footer = _ => {
   return (
@@ -19,13 +19,16 @@ const Footer = _ => {
             <NavLink to="/about" title="About">
               About
             </NavLink>
+            <ExtLink link="/docs/CV.pdf">
+              CV
+            </ExtLink>
           </nav>
           <div className="flex flex-col-reverse md:flex-row md:justify-between space-y-reverse space-y-8 md:space-y-0">
             <span
               className="text-xs tracking-wider self-center md:self-end"
               aria-label="Copyright"
             >
-              © 2021 Aayush Acharya • Forked from <a href="https://github.com/jeffjadulco/jeffjadulco.com" target='__blank'>Jeff Jadulco</a>
+              © 2023 Aayush Acharya • Forked from <a href="https://github.com/jeffjadulco/jeffjadulco.com" target='__blank'>Jeff Jadulco</a>
             </span>
             <div className="flex flex-row items-center space-x-4 justify-center md:justify-end">
               <span>

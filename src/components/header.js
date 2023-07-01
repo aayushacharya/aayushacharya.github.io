@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 import ThemeToggle from "./themeToggle"
-import { NavLink, BlobHeader } from "./atoms"
+import { NavLink, BlobHeader, ExtLink } from "./atoms"
 
 const Header = ({ activePage }) => (
   <header className="container m-auto px-5 sm:px-12 md:px-20 max-w-screen-xl h-32 overflow-hidden">
@@ -21,9 +21,6 @@ const Header = ({ activePage }) => (
         </svg>
       </Link>
       <span className="hidden sm:flex flex-grow items-center space-x-6">
-        <NavLink to="/" title="Home" selected={activePage === "/"}>
-          Home
-        </NavLink>
         <NavLink to="/blog" title="Blog" selected={activePage === "blog"}>
           Blog
         </NavLink>
@@ -37,6 +34,9 @@ const Header = ({ activePage }) => (
         <NavLink to="/about" title="About" selected={activePage === "about"}>
           About
         </NavLink>
+        <ExtLink link="/docs/CV.pdf">
+        CV
+        </ExtLink>
       </span>
       <ThemeToggle className="hidden sm:block hover:text-accent transition duration-150" />
     </nav>
