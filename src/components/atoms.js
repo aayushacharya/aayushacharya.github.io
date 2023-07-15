@@ -162,6 +162,32 @@ export const ExtLink = ({ children, link, newTab }) => {
   }
 }
 
+export const ExtNavLink = ({ children, link, newTab }) => {
+  const textColor = "text-secondary"
+const style = `font-normal text-base hover:text-accent transition duration-150 ${textColor}`
+  if (newTab) {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span className={style}>{children}</span>
+      </a>
+    )
+  } else {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span className={style}>{children}</span>
+      </a>
+    )
+  }
+}
+
 export const ProjectLink = ({ label, url }) => {
   return (
     <span className="font-medium text-tertiary hover:text-accent">

@@ -1,5 +1,5 @@
 import React from "react"
-import { ExtLink, NavLink } from "./atoms"
+import { ExtNavLink, NavLink } from "./atoms"
 
 const Footer = _ => {
   return (
@@ -19,9 +19,9 @@ const Footer = _ => {
             <NavLink to="/about" title="About">
               About
             </NavLink>
-            <ExtLink link="/docs/CV.pdf">
+            <ExtNavLink link="/docs/CV.pdf">
               CV
-            </ExtLink>
+            </ExtNavLink>
           </nav>
           <div className="flex flex-col-reverse md:flex-row md:justify-between space-y-reverse space-y-8 md:space-y-0">
             <span
