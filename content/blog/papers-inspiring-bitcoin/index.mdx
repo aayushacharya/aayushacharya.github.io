@@ -1,0 +1,55 @@
+---
+title: "Papers inspiring - Bitcoin: A Peer-to-Peer Electronic Cash System"
+date: 2022-10-02
+published: true
+tags: ["Paper review", "Distributed systems"]
+description: We discuss papers inspiring the most popular cryptocurrency, bitcoin.
+toc: true
+image: "og-papers-inspiring-bitcoin.png"
+seoImage: "og-papers-inspiring-bitcoin.png"
+---
+
+
+In 2008, Satoshi Nakamoto's paper 'Bitcoin: A Peer-to-Peer Electronic Cash System' unleashed a seismic shift in finance and technology. By proposing a decentralized digital currency and introducing blockchain technology, Nakamoto laid the foundation for Bitcoin, the world's first cryptocurrency. 
+It challenged traditional financial systems, sparked debates on monetary policy and digital privacy, and led to a global movement towards financial sovereignty and innovation, leaving an enduring impact on the modern world.
+This groundbreaking paper has since inspired a vast ecosystem of cryptocurrencies and transformative blockchain applications across industries, which begs the question: **How was it inspired?** 
+
+<Callout>
+💡 Did you know: An estimated 20% of bitcoins have been lost forever due to forgotten passwords or misplaced wallets, contributing to added value of the remaining ones.
+
+</Callout>
+
+
+## About Bitcoin
+
+The novelty of the Bitcoin protocol lies in its groundbreaking concept of a decentralized digital currency. It introduced the first-ever successful implementation of a trustless, peer-to-peer electronic cash system, eliminating the need for intermediaries like banks. Additionally, its use of blockchain technology, combining cryptographic hashing and proof-of-work, set a precedent for transparent, tamper-resistant, and immutable transaction records.
+Like every good paper, it derives some of it's work from existing literature. I am going to go through a couple of them in depth.
+
+## Hashcash - A Denial of Service Counter-Measure
+
+In the late 90s, spam emails were becoming a vexing problem for email providers. Back then, there were a lot fewer tools to mitigate spam emails, and content-based filtering was still in its infancy. As a result, spam was much more prevalent and often flooded users' inboxes. 
+
+Adam Back, a British cryptographer, proposed a way to prevent email spam and denial-of-service (DoS) attacks. It introduced the concept of using computational puzzles as a means of making resource-intensive computations in order to deter abuse. 
+
+The key idea behind *Hashcash*, proposed in 1997, is to require the sender of an email (or any digital message) to perform a certain amount of computational work before the message can be sent or verified. This work is measured by adding a nonce to the email and computing the hash until a certain number of leading zeros appears, and it acts as proof that the sender has expended a significant amount of computing power to generate the required hash value.
+
+By requiring computational effort to send a message using a cost function difficult to compute but easy to verify, hashcash aims to make it economically infeasible for spammers to flood the network with unwanted messages or for attackers to launch large-scale DoS attacks. It effectively raises the cost of sending spam or launching an attack, making these activities less attractive and less likely to occur on a massive scale.
+
+This very **Proof-of-work system** is used in Bitcoin to validate transactions, achieve distributed consensus and create computational effort for adding new blocks in the chain.
+
+## Wei Dai's b-money
+
+Wei Dai's b-money was a novel proposal for an anonymous, distributed electronic cash system. In 1998, computer scientist and cryptographer Wei Dai outlined the concept in his seminal essay titled "b-money: An anonymous, distributed electronic cash system." The main idea behind b-money was to create a decentralized digital currency that would allow users to conduct secure and anonymous transactions directly with one another, without relying on any central authority or intermediary.
+
+In the b-money system, participants would engage in cryptographic proof-of-work to generate new coins and verify transactions. The world envisaged by Wei Dai was a little different than that by Nakamoto. For instance, Wei Dai assumed the identities of the transacting parties to remain anonymous. Furthermore, the coordination mechanism was a bit impractical among servers, for instance, Wei Dai proposed few trusted servers to deposit money for fines or rewards for proof of misconduct.
+
+Still, Wei Dai's b-money essay is cited in the original Bitcoin whitepaper, referring to the fact that it is essential to publicly announce transactions in a decentralized distributed ledger. 
+
+## Secrecy, authentication, and public key systems
+
+Although this paper of Ralph Merkle is not cited in the original whitepaper, it is probably more impactful towards bitcoin architecture than the other paper of Merkle which is cited, "Protocols for Public Key Cryptosystems". Ralph Merkle's paper "Secrecy, authentication, and public key systems," published in 1979, introduced the concept of Merkle trees, a fundamental cryptographic data structure. 
+In the paper, Merkle proposed a method to efficiently verify large sets of data by creating a binary hash tree, now known as a Merkle tree. 
+The process involves hashing data in pairs until a single root hash is obtained, representing the entire dataset's integrity. 
+This structure enables secure and fast verification of individual data elements without the need to store the entire dataset, making it ideal for applications like digital signatures and data authentication. 
+
+Hash trees in general have also found widespread application in various technologies such as the InterPlanetary File System (IPFS), Btrfs, and ZFS file systems to protect against data degradation. They are also utilized in protocols like the Dat protocol and Apache Wave protocol, as well as distributed revision control systems like Git and Mercurial.
