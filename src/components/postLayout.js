@@ -5,13 +5,14 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import SEO from "./seo"
-import { BlogTags, BlogTitle, BlogTitleInfo, ExtLink, TagIcon } from "./atoms"
+import { BlogTags, BlogTitle, BlogTitleInfo, ExtLink, TagIcon, Callout } from "./atoms"
 import Contact from "./contact"
 import TOC from "./toc"
 
 const shortcodes = {
   ExtLink,
   Link,
+  Callout
 }
 
 const PostLayout = ({ data: { mdx, ogImage } }) => {
