@@ -16,7 +16,7 @@ const About = () => {
           <p>
             I'm Aayush Acharya, a Software Developer working at{" "} <ExtLink link="https://raralabs.com">RARA Labs</ExtLink> and a Computer Engineer alumni of{" "}
             <ExtLink link="http://pcampus.edu.np/">IOE, Pulchowk Campus</ExtLink>. My goal is to
-            provide a meaningful contribution through research to the software engineering community, often with the aid of Deep Learning.
+            provide a meaningful contribution through research to the software engineering community.
           </p>
           <p>
             Currently, I am working in RARA Labs, carrying out projects in GraphQL and REST API using Go. 
