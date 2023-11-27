@@ -1,24 +1,24 @@
 export default [
   {
-    title: "R2PX",
+    title: "Cross Border Request to Pay",
     subtitle: "Industry",
     stack: ["Go", "RabbitMQ", "Docker","CI/CD"],
     tags: ["API Service","Backend"],
     description:
-      "Constructed secure, digitally signed messages using the ISO20022 financial standard to protect the integrity of transactions, leveraging RabbitMQ's asynchronous messaging for efficient and reliable communication between system components. Established robust CI/CD pipelines, automating integration and deployment for faster time-to-market and improved development efficiency. Spearheaded the design and implementation of independent execution threads in Go, optimizing performance and scalability for the R2PX project.",
+      "Constructed secure, digitally signed messages using the ISO20022 financial standard to protect the integrity of transactions, leveraging RabbitMQ's asynchronous messaging for efficient and reliable communication between system components. Established robust CI/CD pipelines, automating integration and deployment for faster time-to-market and improved development efficiency. Spearheaded the design and implementation of independent execution threads in Go, optimizing performance and scalability.",
     year: "2023",
   },
   {
-    title: "Intellix",
+    title: "HMS with Sepsis predictive models",
     subtitle: "Industry",
     stack: ["Python", "ML","Flask","Go","GraphQL"],
     tags: ["Machine Learning","Backend"],
     description:
-      "Developed Intellix, a cutting-edge healthcare management product revolutionizing patient allocation across hospitals, wards, and beds. Leveraged comprehensive patient data, including demographics and EMR records, to build predictive models for early sepsis detection. Integrated sepsis prediction algorithms to enhance patient safety, enabling timely intervention and treatment. Spearheaded the creation of robust task assignment functionalities, including checklists and vital measurements, ensuring efficient healthcare workflows.",
+      "Developed a cutting-edge healthcare management product revolutionizing patient allocation across hospitals, wards, and beds. Leveraged comprehensive patient data, including demographics and EMR records, to build predictive models for early sepsis detection. Integrated sepsis prediction algorithms to enhance patient safety, enabling timely intervention and treatment. Spearheaded the creation of robust task assignment functionalities, including checklists and vital measurements, ensuring efficient healthcare workflows.",
     year: "2023",
   },
   {
-    title: "SSG ",
+    title: "Static site generator",
     subtitle: "Industry",
     stack: ["Go", "GCP","Firestore","App Engine","Cloud functions"],
     tags: ["Backend", "Google Cloud","Serverless"],
