@@ -1,6 +1,6 @@
 ---
 title: "Implementing Audit Log using GORM in Go"
-date: 2022-07-14
+date: 2023-02-14
 updated: 2023-07-15
 published: true
 tags: ["Go", "gORM"]
@@ -9,7 +9,6 @@ toc: true
 image: "og-audit-log-gorm.png"
 seoImage: "og-audit-log-gorm.png"
 ---
-
 
 In many applications, it's essential to keep track of changes made to data in the database for auditing and debugging purposes. One common approach is to implement an audit log, which records information about the operations performed on the data. In this blog post, we will explore how to implement an audit log using GORM, a popular ORM library for Go.
 
@@ -265,7 +264,7 @@ With the database and model set up, we can now proceed to implement the audit lo
 
 In the above code, we have defined several functions that are responsible for creating audit log entries. These functions are registered as GORM callbacks for the respective operations (create, update, and delete).
 
-The `createAuditLog`, `updateAuditLog`, and `deleteAuditLog` functions retrieve the necessary data before the operation using the `getDataBeforeOperation` function. They construct an `AuditLog` object with the required information and use GORM's `Create` method to store the audit log entry in the `audit_logs` table. The callbacks ensure that creating an audit log does not trigger that callback again by performing the check at the start of each callback. 
+The `createAuditLog`, `updateAuditLog`, and `deleteAuditLog` functions retrieve the necessary data before the operation using the `getDataBeforeOperation` function. They construct an `AuditLog` object with the required information and use GORM's `Create` method to store the audit log entry in the `audit_logs` table. The callbacks ensure that creating an audit log does not trigger that callback again by performing the check at the start of each callback.
 
 The `getDataBeforeOperation` function retrieves the data before the database operation by reflecting on the GORM statement's reflected value. It is essential to note that a new **GORM session** should be initialized with a **NewDB** so that the existing conditions(of the create, update or delete query) do not affect the find query. It creates a new instance of the object type, fetches the target object from the database, and serializes it to JSON. Finally, it deserializes the JSON into a map.
 
@@ -276,6 +275,3 @@ The `RegisterCallbacks` function is responsible for registering the audit log ca
 Implementing an audit log using GORM allows you to track changes made to your application data, enabling auditing, debugging, and maintaining data integrity. By following the steps outlined in this blog post, you can easily incorporate audit log functionality into your Go applications.
 Remember to customize the code to fit your specific application needs, such as the structure of your application data and any additional fields you want to include in the audit log entries.
 Having an audit log in place provides transparency, accountability, and traceability for data changes, which is essential for many applications.
-
-
-
