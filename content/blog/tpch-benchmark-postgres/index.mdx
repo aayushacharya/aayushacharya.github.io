@@ -1,0 +1,210 @@
+---
+title: "Performing TPC-H benchmark in Postgresql"
+date: 2023-11-14
+updated: 2023-11-27
+published: true
+tags: ["Database", "dbt-3"]
+description: Using TPC-H compliant dbt-3 to benchmark Postgresql.
+toc: true
+image: "og-tpch-benchmark-postgres.png"
+seoImage: "og-tpch-benchmark-postgres.png"
+---
+
+TPC-H is a decision support benchmark, which consists of a set of business-oriented special query and concurrent data modification. The data that is queried and populates the database has broad industry relevance.
+This benchmark reflects multiple aspects of a system's ability to process queries.
+TPC-H consists of database agnostic data generation specifications. DBT-3 is a fair usage implementation of TPC-H benchmark for many RDBMS including Postgres.
+
+## Hardware specification
+
+A VM with the following specs was rented in Azure for this benchmarking.
+
+| Hardware          | Configuration            |
+| ----------------- | ------------------------ |
+| VM Cloud provider | Azure                    |
+| VM series         | F-Series                 |
+| Instance          | Standard F16s v2         |
+| CPU               | Intel Xeon Platinum 82   |
+| Vcpus             | 16                       |
+| Memory            | 32 GiB                   |
+| Disk              | Premium SSD LRS - 30 GiB |
+
+## Software specification
+
+<Callout>
+  💡 Please look at Postgres docs for installation correct version of Postgres
+  on Ubuntu.
+</Callout>
+
+The following is the software specification for the performed benchmarking.
+
+| Software | Configuration     |
+| -------- | ----------------- |
+| OS       | Ubuntu 20.04 LTS  |
+| Kernel   | 5.15.0-1050-azure |
+| Database | Postgres 16       |
+| TPC-H    | 3.0.1             |
+| DBT-3    | 3.0.1             |
+
+## Downloading TPC-H tools file
+
+The TPC Tools are available free of charge, however all users must agree to the licensing terms and register prior to use.
+You'll need to fill out a form and agree to the licensing terms. You'll receive an email with the link to download the tools.
+On downloading the zip file, execute the following command.
+
+```bash
+unzip *.zip      #replace with actual filename
+```
+
+## Installing dbt-3
+
+Following are the prerequisites for installing dbt-3
+
+- C compiler
+- CMake
+- make
+- patch
+- bc
+- TPC-H tools
+
+First clone the dbt-3 repository and change the current working directory to the repository.
+
+```bash
+git clone https://github.com/osdldbt/dbt3.git && cd ./dbt3
+```
+
+Next create a valid build using the following command.
+
+```bash
+make -f Makefile.cmake release
+```
+
+Now change the working directory to `builds/release` and install using cmake.
+
+```bash
+cd builds/release
+cmake --install . --prefix /usr/local
+```
+
+## Running the benchmark
+
+Now that we have installed dbt3, we can proceed with running the benchmark.
+Switch the current working directory to the place where you unzipped the tpch tool.
+
+First, let's first create a database first.
+
+```bash
+psql -c 'CREATE DATABASE dbt3;'
+```
+
+<Callout>
+  💡 Make sure that the user logged in is also a valid postgres user. If not
+  change the environment variable as specified by the dbt3 docs
+</Callout>
+
+Now, we have to build the TPC-H tools for postgres. This is done by executing the following command.
+
+```bash
+dbt3-build-dbgen --patch-dir=<path to dbt3 repo>/patches --query-dir=<path to dbt3 repo>/queries pgsql "TPC-H V3.0.1"/ # replace tpch version accordingly
+```
+
+Once the tool is built, a complete test can be run by the following command.
+
+```bash
+dbt3-run --tpchtools="TPC-H V3.0.1" pgsql /tmp/results
+```
+
+This will run the generate the data files for a 1 GB scale factor database load, power and throughput test, with 2 streams, against PostgreSQL and save the results of the test in /tmp/results.
+
+The dbt3-run script can be used to run any combination of a load test, power test, and throughput test. A load tests must be run in order to create the database before a power or throughput tests can be run individually.
+
+## Results
+
+## Power Test
+
+- Seed: 1125170539
+
+| Duration (seconds) | Query Start Time       | RF1 Start Time         | RF2 Start Time         |
+| ------------------ | ---------------------- | ---------------------- | ---------------------- |
+|                    | <b>Query End Time</b>  | <b>RF1 End Time</b>    | <b>RF2 End Time</b>    |
+| 7573.62            | 2023-11-25 17:05:46.01 | 2023-11-25 17:05:41.15 | 2023-11-25 19:11:54.60 |
+|                    |                        |                        |                        |
+|                    | 2023-11-25 19:11:54.56 | 2023-11-25 17:05:45.98 | 2023-11-25 19:11:54.70 |
+
+| Query | Response Time (seconds) |
+| ----- | ----------------------- |
+| 1     | 2.32                    |
+| 2     | 0.38                    |
+| 3     | 0.48                    |
+| 4     | 0.18                    |
+| 5     | 0.49                    |
+| 6     | 0.41                    |
+| 7     | 0.56                    |
+| 8     | 0.70                    |
+| 9     | 1.49                    |
+| 10    | 0.65                    |
+| 11    | 0.23                    |
+| 12    | 0.64                    |
+| 13    | 0.61                    |
+| 14    | 0.69                    |
+| 15    | 0.79                    |
+| 16    | 0.35                    |
+| 17    | 2497.60                 |
+| 18    | 3.40                    |
+| 19    | 0.59                    |
+| 20    | 5054.63                 |
+| 21    | 0.36                    |
+| 22    | 0.13                    |
+| RF1   | 4.83                    |
+| RF2   | 0.10                    |
+
+## Throughput Test
+
+### Stream execution summary:
+
+| Stream      | Duration (seconds) | Query Start Time       | RF1 Start Time         | RF2 Start Time         |
+| ----------- | ------------------ | ---------------------- | ---------------------- | ---------------------- |
+| <b>Seed</b> |                    | <b>Query End Time</b>  | <b>RF1 End Time</b>    | <b>RF2 End Time</b>    |
+|             |                    |                        |                        |                        |
+| 1           | 8338.32            | 2023-11-25 19:11:55.80 | 2023-11-25 19:11:54.84 | 2023-11-25 19:11:59.73 |
+|             |                    |                        |                        |                        |
+| 1125170540  |                    | 2023-11-25 21:30:54.05 | 2023-11-25 19:11:59.69 | 2023-11-25 19:11:59.83 |
+|             |                    |                        |                        |                        |
+| 2           | 8783.61            | 2023-11-25 19:11:55.80 | 2023-11-25 19:11:59.94 | 2023-11-25 19:12:04.77 |
+|             |                    |                        |                        |                        |
+| 1125170541  |                    | 2023-11-25 21:38:19.34 | 2023-11-25 19:12:04.73 | 2023-11-25 19:12:04.88 |
+
+### Query execution duration (seconds):
+
+| Stream | Q1   | Q2   | Q3   | Q4   | Q5   | Q6   | Q7   |
+| ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 1      | 2.35 | 0.35 | 0.48 | 0.18 | 0.48 | 0.41 | 0.56 |
+| 2      | 2.35 | 0.35 | 0.48 | 0.18 | 0.48 | 0.41 | 0.57 |
+| Min    | 2.35 | 0.35 | 0.48 | 0.18 | 0.48 | 0.41 | 0.57 |
+| Max    | 2.35 | 0.35 | 0.48 | 0.18 | 0.48 | 0.41 | 0.57 |
+| Avg    | 1.17 | 0.17 | 0.24 | 0.09 | 0.24 | 0.20 | 0.28 |
+
+| Stream | Q8   | Q9   | Q10  | Q11  | Q12  | Q13  | Q14  |
+| ------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 1      | 0.70 | 1.43 | 0.65 | 0.21 | 0.64 | 0.60 | 0.42 |
+| 2      | 0.69 | 1.50 | 0.65 | 0.22 | 0.64 | 0.61 | 0.41 |
+| Min    | 0.69 | 1.50 | 0.65 | 0.22 | 0.64 | 0.61 | 0.41 |
+| Max    | 0.69 | 1.50 | 0.65 | 0.22 | 0.64 | 0.61 | 0.41 |
+| Avg    | 0.34 | 0.75 | 0.33 | 0.11 | 0.32 | 0.30 | 0.21 |
+
+| Stream | Q15  | Q16  | Q17     | Q18  | Q19  | Q20     | Q21  |
+| ------ | ---- | ---- | ------- | ---- | ---- | ------- | ---- |
+| 1      | 0.79 | 0.35 | 2364.51 | 3.37 | 0.59 | 5957.87 | 0.36 |
+| 2      | 0.80 | 0.35 | 2738.75 | 3.37 | 0.59 | 6028.83 | 0.36 |
+| Min    | 0.80 | 0.35 | 2738.75 | 3.37 | 0.59 | 6028.83 | 0.36 |
+| Max    | 0.80 | 0.35 | 2738.75 | 3.37 | 0.59 | 6028.83 | 0.36 |
+| Avg    | 0.40 | 0.18 | 1369.37 | 1.69 | 0.30 | 3014.42 | 0.18 |
+
+| Stream | Q22  | RF1  | RF2  |
+| ------ | ---- | ---- | ---- |
+| 1      | 0.13 | 4.85 | 0.10 |
+| 2      | 0.13 | 4.79 | 0.11 |
+| Min    | 0.13 | 4.79 | 0.10 |
+| Max    | 0.13 | 4.85 | 0.11 |
+| Avg    | 0.07 | 4.82 | 0.11 |
+
+How do I interpret the result? We can in general interpret why some queries, like Q17 and Q20 are taking a lot of time, looking at the query structure and how postgres processes these queries(or these type of queries in general). It can also be used to see if any major change we are making on the general Postgres architecture is causing a significant impact. Say if we implement the Yannakakis algorithm in Postgres. The comparison between those two variants could provide meaningful results as to the performance.
