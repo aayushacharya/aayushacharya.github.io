@@ -11,7 +11,7 @@ const Blog = () => {
       <SEO title="Blog" />
       <Heading>Blog</Heading>
       <p className="-mt-3 mb-12 text-tertiary">
-        I write things about web development, distributed systems, consensus algorithms and also stuff that I
+        I write things about web development, database systems, distributed systems, consensus algorithms and also stuff that I
         find interesting.
       </p>
       <PostList />
