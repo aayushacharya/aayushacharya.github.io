@@ -8,11 +8,12 @@ import SEO from "./seo"
 import { BlogTags, BlogTitle, BlogTitleInfo, ExtLink, TagIcon, Callout } from "./atoms"
 import Contact from "./contact"
 import TOC from "./toc"
-
+import Img from "gatsby-image"
 const shortcodes = {
   ExtLink,
   Link,
-  Callout
+  Callout,
+  Img  
 }
 
 const PostLayout = ({ data: { mdx, ogImage } }) => {
