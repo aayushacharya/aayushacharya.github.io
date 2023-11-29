@@ -1,7 +1,7 @@
 ---
 title: "Acyclic queries and GYO reduction"
 date: 2023-05-14
-updated: 2023-11-28
+updated: 2023-11-29
 published: true
 tags: ["Database"]
 description: A brief outlook about acyclic queries with illustrative examples of GYO reduction.
@@ -90,30 +90,32 @@ Let us consider the following conjunctive query.
 
 The following is the generated hypergraph for the above CQ. Here the variables are the nodes whereas the relations are the edges.
 
-<img src="hypergraph-1.png" />
+![Hypergraph 1](./hypergraph-1.png)
 
 Now let's see the GYO reduction algorithm in place. First let's find the _ears_ in a hypergraph iteratively. Let's see if a hyperedge is isolated or completely contained in another hyperedge.
 Immediately we can see that for the hyperedge A, both variables _p_ and _y_ are contained within C. Similarly since node _q_ is isolated and when removed the remaining nodes lie within hyperedge C,
 we are left with the following hypergraph and join tree.
 
-<img src="hypergraph-2.png" />
+![Hypergraph 2](./hypergraph-2.png)>
 
 In the join tree, we keep track of the variables that are shared between the atoms.
 For `A(p,y)`, we can see that it shares both `p` and `y` with `C(p,x,y)`. So the
 join tree tracks π<sub>p,y</sub>(π<sub>-Φ</sub>). Similar is the case with `C(p,x,y)` and `B(q,x)`.
 
-<img src="tree-1.png" />
+![Tree 1](./tree-1.png)
 
 In the next pass, we can see node _w_ is isolated, and the remaining node `y` and `z` are contained within E, so edge D is consumed.
 So, by GYO reduction we obtain the following hypergraph and join tree.
 
-<img src="hypergraph-3.png" />
-<img src="tree-2.png" />
+![Hypergraph 3](./hypergraph-3.png)
+![Tree 2](./tree-2.png)
 
-Finally, we repeat this process until we are left with the following hyper graph, and the complete join tree.
+Finally, we repeat this process until we are left with the following hyper graph.
 
-<img src="hypergraph-4.png" />
-<img src="tree-3.png" />
+![Hypergraph 4](./hypergraph-4.png)
+
+The complete join tree is as follows.
+![Tree 3](./tree-3.png)
 
 In the next blog, we will discuss the query evaluation part of acyclic queries through Yannakakis algorithm. Until then cheers !!
 
