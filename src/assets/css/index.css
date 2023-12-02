@@ -27,10 +27,12 @@
   --color-text-tertiary: #4a5568;
   --color-text-on-accent: #f7fafc;
 
+  --color-table-header: #000000;
+
   --color-fill-primary: #b1d9f6;
   --color-fill-secondary: #edf2f7;
 
-  --color-gradient-accent1: rgba(49, 130, 206, 1);
+  --color-gradient-accent1: rgb(14, 77, 135);
   --color-gradient-accent2: rgba(79, 209, 197, 1);
 
   --color-code-background: #edf2f7;
@@ -57,6 +59,8 @@
   --color-text-secondary: #e2e8f0;
   --color-text-tertiary: #a0aec0;
   --color-text-on-accent: #1a202c;
+
+  --color-table-header: #ffffff;
 
   --color-fill-primary: #81e6d9;
   --color-fill-secondary: #161b25;

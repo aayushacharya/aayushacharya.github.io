@@ -98,6 +98,9 @@ module.exports = {
           strong: {
             color: "var(--color-text-tertiary)",
           },
+          th:{
+            color: "var(--color-table-header)",
+          },
           blockquote: {
             borderLeftWidth: "0.25rem",
             borderLeftColor: "var(--color-text-accent)",
