@@ -1,7 +1,7 @@
 ---
 title: "Acyclic queries and GYO reduction"
 date: 2023-05-14
-updated: 2023-11-29
+updated: 2023-12-09
 published: true
 tags: ["Database"]
 description: A brief outlook about acyclic queries with illustrative examples of GYO reduction.
@@ -96,7 +96,7 @@ Now let's see the GYO reduction algorithm in place. First let's find the _ears_ 
 Immediately we can see that for the hyperedge A, both variables _p_ and _y_ are contained within C. Similarly since node _q_ is isolated and when removed the remaining nodes lie within hyperedge C,
 we are left with the following hypergraph and join tree.
 
-![Hypergraph 2](./hypergraph-2.png)>
+![Hypergraph 2](./hypergraph-2.png)
 
 In the join tree, we keep track of the variables that are shared between the atoms.
 For `A(p,y)`, we can see that it shares both `p` and `y` with `C(p,x,y)`. So the
