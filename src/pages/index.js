@@ -13,7 +13,7 @@ const IndexPage = () => (
       <h1 className="mt-12 lg:mt-0 max-w-3xl text-3xl sm:text-4xl text-primary font-semibold sm:text-left md:text-center lg:text-left">
         Hi, I’m Aayush.
         <br className="mb-6 lg:hidden" /> I’m a Software Engineer with an
-        avid interest in DBMS and DS.
+        avid interest in AI and DBMS.
       </h1>
       <div className="relative">
         <Blob />
