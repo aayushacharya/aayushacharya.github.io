@@ -34,6 +34,12 @@ export default [
     description:
       "An integrated ASR and NLP system that generates transcripts and relevant category for a given Nepali audio using a combination of self-supervised wav2vec2 model and CTC along with BERT based MuRIL model for Indic languages for further categorization into relevant categories like Sports, Politics, etc.",
     year: "2022",
+    links:[
+      {
+        label:"Report",
+        url:"/docs/be_thesis.pdf"
+      }
+    ]
   },
   {
     title: "Pest Classification using Deep Learning",
