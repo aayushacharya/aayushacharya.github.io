@@ -14,13 +14,13 @@ const About = () => {
         <article className="prose">
           <h2>About Me</h2>
           <p>
-            I'm Aayush Acharya, a Software Developer working at{" "} <ExtLink link="https://raralabs.com">RARA Labs</ExtLink> and a Computer Engineer alumni of{" "}
+            I am Aayush Acharya, an MS CS student at{" "} <ExtLink link="https://temple.edu">Temple University</ExtLink> and a Computer Engineer alumni of{" "}
             <ExtLink link="http://pcampus.edu.np/">IOE, Pulchowk Campus</ExtLink>. My goal is to
-            provide a meaningful contribution through research to the software engineering community.
+            provide a meaningful contribution through research.
           </p>
           <p>
-            Currently, I am working in RARA Labs, carrying out projects in GraphQL and REST API using Go. 
-            Here, I have designed independent execution threads using goroutines, worked with asynchronous messaging using RabbitMQ, constructed ISO20022 financial standard
+            I worked in RARA Labs, carrying out projects in software engineering with a focus on backend development along with machine learning. I built ML pipelines for identifying medical harms based on EMR data.
+            In addition, I designed independent execution threads using goroutines, worked with asynchronous messaging using RabbitMQ, constructed ISO20022 financial standard
             digitally signed messages and devised CI/CD pipelines. I also undertook the role of a Research Intern in <ExtLink link="https://www.naamii.org.np/">NAAMII</ExtLink>. 
             There I worked on building a Nepali automatic speech recognition using Wav2Vec 2.0, for learning the speech representations in a low resource setting and MURIL, a BERT model pretrained on indic languages, as a classification model in my final year project thesis supervised by Bishesh Khanal, Ph.D. as a research intern at NAAMII.
             Furthermore, I also built ML pipelines for identifying medical harms based on EMR data in RARA Labs.
@@ -32,7 +32,7 @@ const About = () => {
           </p>
         </article>
       </div>
-      <Heading>Skills</Heading>
+      {/* <Heading>Skills</Heading>
       <p className="text-tertiary">Currently, these are the skills I have acquired over the years. Download the full CV <ExtLink link="/docs/CV.pdf">here</ExtLink>.</p>
       <div className="flex flex-col space-y-0">
         {skills.map(data => {
@@ -45,7 +45,7 @@ const About = () => {
             />
           )
         })}
-      </div>
+      </div> */}
       
       <Contact />
     </Layout>

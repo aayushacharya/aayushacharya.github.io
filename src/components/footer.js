@@ -28,7 +28,7 @@ const Footer = _ => {
               className="text-xs tracking-wider self-center md:self-end"
               aria-label="Copyright"
             >
-              © 2023 Aayush Acharya • Forked from <a href="https://github.com/jeffjadulco/jeffjadulco.com" target='__blank'>Jeff Jadulco</a>
+              © 2024 Aayush Acharya • Forked from <a href="https://github.com/jeffjadulco/jeffjadulco.com" target='__blank'>Jeff Jadulco</a>
             </span>
             <div className="flex flex-row items-center space-x-4 justify-center md:justify-end">
               <span>
