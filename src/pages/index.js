@@ -12,8 +12,7 @@ const IndexPage = () => (
     <div className="mt-12 flex flex-col-reverse lg:flex-row items-center lg:justify-between lg:space-x-6">
       <h1 className="mt-12 lg:mt-0 max-w-3xl text-3xl sm:text-4xl text-primary font-semibold sm:text-left md:text-center lg:text-left">
         Hi, I’m Aayush.
-        <br className="mb-6 lg:hidden" /> I am an MS CS student with an
-        avid interest in AI and DBMS.
+        <br className="mb-6 lg:hidden" /> I am an PhD CS student with avid interest in AI.
       </h1>
       <div className="relative">
         <Blob />

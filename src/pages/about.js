@@ -14,7 +14,7 @@ const About = () => {
         <article className="prose">
           <h2>About Me</h2>
           <p>
-            I am Aayush Acharya, an MS CS student at{" "} <ExtLink link="https://temple.edu">Temple University</ExtLink> and a Computer Engineer alumni of{" "}
+            I am Aayush Acharya, a PhD CS student at{" "} <ExtLink link="https://temple.edu">Temple University</ExtLink> and a Computer Engineer alumni of{" "}
             <ExtLink link="http://pcampus.edu.np/">IOE, Pulchowk Campus</ExtLink>. My goal is to
             provide a meaningful contribution through research.
           </p>
