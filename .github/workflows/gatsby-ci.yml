@@ -29,6 +29,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: python3 -m pip install setuptools
     - run: npm ci --force
     - run: npm run build --if-present
     - name: Deploy 🚀
