@@ -88,7 +88,7 @@ export const BlogTitleInfo = ({
 
   return (
     <div className="mb-2 text-sm text-tertiary tracking-normal">
-      <span>{timeToRead} minute read</span>
+      <span>{timeToRead}</span>
       <span> • </span>
       <span>
         <time dateTime={datetime}>{date}</time>
@@ -164,7 +164,7 @@ export const ExtLink = ({ children, link, newTab }) => {
 
 export const ExtNavLink = ({ children, link, newTab }) => {
   const textColor = "text-secondary"
-const style = `font-normal text-base hover:text-accent transition duration-150 ${textColor}`
+  const style = `font-normal text-base hover:text-accent transition duration-150 ${textColor}`
   if (newTab) {
     return (
       <a

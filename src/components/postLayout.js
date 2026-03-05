@@ -1,29 +1,30 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 import Layout from "./layout"
-import SEO from "./seo"
+import Seo from "./seo"
 import { BlogTags, BlogTitle, BlogTitleInfo, ExtLink, TagIcon, Callout } from "./atoms"
 import Contact from "./contact"
-import TOC from "./toc"
-import Img from "gatsby-image"
+import Toc from "./toc"
+// import Img from "gatsby-image"
+import { getSrc, GatsbyImage } from "gatsby-plugin-image"
 const shortcodes = {
   ExtLink,
   Link,
   Callout,
-  Img  
+  GatsbyImage,
 }
 
-const PostLayout = ({ data: { mdx, ogImage } }) => {
+
+const PostLayout = ({ data: { mdx, ogImage }, children }) => {
   return (
     <Layout activePage="blog">
-      <SEO
+      <Seo
         blog
         title={mdx.frontmatter.title}
         description={mdx.excerpt}
-        ogImage={ogImage && ogImage.childImageSharp.fixed.src}
+        ogImage={ogImage && getSrc(ogImage.childImageSharp.gatsbyImageData)}
       />
       <div className="flex justify-between mt-10 mb-10 relative">
         <article className="prose sm:prose md:prose-lg min-w-0 max-w-none tracking-normal">
@@ -31,7 +32,7 @@ const PostLayout = ({ data: { mdx, ogImage } }) => {
             <BlogTitleInfo
               date={mdx.frontmatter.date}
               datetime={mdx.frontmatter.datetime}
-              timeToRead={mdx.timeToRead}
+              timeToRead={mdx.fields?.timeToRead?.text}
               updated={mdx.frontmatter.updated}
               updated_datetime={mdx.frontmatter.updated_datetime}
             />
@@ -42,12 +43,12 @@ const PostLayout = ({ data: { mdx, ogImage } }) => {
             </BlogTags>
           </div>
           <MDXProvider components={shortcodes}>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
+            {children}
           </MDXProvider>
         </article>
         {mdx.tableOfContents && mdx.frontmatter.toc === true && (
           <aside className="sticky hidden lg:block max-w-xs ml-6 mt-8 h-screen">
-            <TOC items={mdx.tableOfContents.items} />
+            <Toc items={mdx.tableOfContents.items} />
           </aside>
         )}
       </div>
@@ -60,7 +61,6 @@ export const pageQuery = graphql`
   query blogPostQuery($id: String, $ogImageSlug: String) {
     mdx(id: { eq: $id }) {
       id
-      body
       frontmatter {
         title
         date(formatString: "MMMM Do YYYY")
@@ -73,13 +73,15 @@ export const pageQuery = graphql`
       }
       excerpt(pruneLength: 140)
       tableOfContents
-      timeToRead
+      fields{
+        timeToRead{
+          text
+        }
+      }
     }
     ogImage: file(relativePath: { eq: $ogImageSlug }) {
       childImageSharp {
-        fixed(width: 1280) {
-          src
-        }
+        gatsbyImageData(width: 1280, layout: FIXED)
       }
     }
   }

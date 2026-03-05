@@ -28,11 +28,11 @@ const Footer = _ => {
               className="text-xs tracking-wider self-center md:self-end"
               aria-label="Copyright"
             >
-              © 2024 Aayush Acharya • Forked from <a href="https://github.com/jeffjadulco/jeffjadulco.com" target='__blank'>Jeff Jadulco</a>
+              © 2026 Aayush Acharya • Forked from <a href="https://github.com/jeffjadulco/jeffjadulco.com" target='__blank'>Jeff Jadulco</a>
             </span>
             <div className="flex flex-row items-center space-x-4 justify-center md:justify-end">
               <span>
-                
+
                 <a
                   href="mailto:ayushacharya99@gmail.com"
                   aria-label="Email ayushacharya99@gmail.com"

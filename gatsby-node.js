@@ -1,5 +1,6 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
+const readingTime = require("reading-time");
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -11,9 +12,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: "slug",
       node,
       value: `/blog${value}`,
-    })
+    });
+
+    createNodeField({
+      name: "timeToRead",
+      node,
+      value: readingTime(node.body),
+    });
   }
 }
+
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -29,6 +37,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             frontmatter {
               seoImage
+            }
+            internal {
+              contentFilePath
             }
           }
         }
@@ -47,9 +58,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       `🍕 Dynamically creating page for ${node.fields.slug} with og-image ${node.frontmatter.seoImage}`
     )
 
+    const postTemplate = path.resolve(`./src/components/postLayout.js`)
+
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/components/postLayout.js`),
+      component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: { id: node.id, ogImageSlug: node.frontmatter.seoImage },
     })
   })

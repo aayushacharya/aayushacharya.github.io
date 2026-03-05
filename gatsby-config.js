@@ -36,7 +36,7 @@ module.exports = {
         path: `${__dirname}/content/blog`,
       },
     },
-    "gatsby-image",
+    "gatsby-plugin-image",
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -73,13 +73,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        whitelist: ["GOOGLE_ANALYTICS_TRACKING_ID"],
+        allowList: ["GOOGLE_ANALYTICS_TRACKING_ID"],
       },
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        mdxOptions: {
+          remarkPlugins: [require('remark-gfm')],
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,

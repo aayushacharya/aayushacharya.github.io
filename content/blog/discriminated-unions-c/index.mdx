@@ -26,7 +26,7 @@ Let’s see where unions might prove useful. Let us consider a data structure **
 y, z** and **w**. **Vec4** can either be defined by initializing each of the four elements or using two **Vec2**s 
 (each **Vec2** has two elements). This is also shown below. 
 
-<img src="fig-1.png" />
+![Vec4 diagram](./fig-1.png)
 
 The implementation can be done as follows. This implementation of **Vec4** allows us to initialize it using two **Vec2**s 
 or individual **Vec4** elements, while utilizing the same memory.   
@@ -74,11 +74,11 @@ printf("a: { %d, %d }, b: { %d, %d }\n", r.a.x, r.a.y, r.b.x, r.b.y);
 The figure below shows the insertion operation through **Vec2** elements on **Vec4**.
 The same elements when read using **x**, **y**, **z**, and **w** show the inserted value.
 
-<img src="fig-2.png" />
+![Vec4 insertion](./fig-2.png)
 
 The figure below shows that when **z** is updated, the value retrieved by **b.x** is also changed.
 
-<img src="fig-3.png" />
+![Vec4 update](./fig-3.png)
 
 ## Tagged Unions
 
@@ -130,7 +130,7 @@ The **member_set** now allows the addition operation of any two **MyData** objec
 Let us consider an object which can either be a circle or a square. 
 Implementing them as a union, how can we know which shape is set to perform object operations?
 
-<img src="fig-4.png" />
+![Tagged union example](./fig-4.png)
 
 Here, the *enum* **Object_shape**, is used to determine which shape is set in the **Object** *struct*.
 
