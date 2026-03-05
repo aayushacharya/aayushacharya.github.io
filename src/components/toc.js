@@ -4,9 +4,8 @@ import useIntersectNode from "../hooks/useIntersectionObserver"
 const TocEntry = ({ items, active, depth = 0 }) => {
   return items.map(item => {
     const color = item.url === `#${active}` ? "text-accent" : "text-tertiary"
-    const style = `block mt-3 text-sm hover:text-accent ml-${
-      depth * 3
-    } ${color}`
+    const style = `block mt-3 text-sm hover:text-accent ml-${depth * 3
+      } ${color}`
     return (
       <React.Fragment key={item.url}>
         <a href={item.url} className={style}>
@@ -29,7 +28,7 @@ const getTocEntries = items => {
   return entries
 }
 
-const TOC = ({ items }) => {
+const Toc = ({ items }) => {
   const itemsWithIntroduction = [...items]
   itemsWithIntroduction.unshift({
     title: "Introduction",
@@ -52,4 +51,4 @@ const TOC = ({ items }) => {
   )
 }
 
-export default TOC
+export default Toc

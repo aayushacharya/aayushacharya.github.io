@@ -1,8 +1,70 @@
 @import url("https://rsms.me/inter/inter.css");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   scroll-behavior: auto;
-  @apply dark;
+}
+
+/* Tailwind v4 theme tokens (non-conflicting) */
+@theme {
+  --font-sans: "Inter", "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Helvetica Neue", "Arial", "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --letter-spacing-widestest: 0.2em;
+}
+
+/* ── Custom text-color utilities ── */
+@utility text-accent {
+  color: var(--color-text-accent);
+}
+
+@utility text-primary {
+  color: var(--color-text-primary);
+}
+
+@utility text-secondary {
+  color: var(--color-text-secondary);
+}
+
+@utility text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+@utility text-on-accent {
+  color: var(--color-text-on-accent);
+}
+
+@utility text-fill-primary {
+  color: var(--color-fill-primary);
+}
+
+@utility text-fill-secondary {
+  color: var(--color-fill-secondary);
+}
+
+/* ── Custom background-color utilities ── */
+@utility bg-accent {
+  background-color: var(--color-bg-accent);
+}
+
+@utility bg-primary {
+  background-color: var(--color-bg-primary);
+}
+
+@utility bg-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+/* ── Custom border / divide utilities ── */
+@utility border-accent {
+  border-color: var(--color-text-accent);
+}
+
+@utility divide-subtle {
+  &> :not(:last-child) {
+    border-color: var(--color-bg-secondary);
+  }
 }
 
 ::-moz-selection {
@@ -81,9 +143,6 @@
   --color-code-regex: #ffb86c;
 }
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 
 body {
   transition: all 300ms ease 0s;
@@ -101,6 +160,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -138,23 +198,81 @@ aside.sticky {
   }
 }
 
+/* ── Typography (prose) overrides ── */
+.prose {
+  color: var(--color-text-tertiary);
+}
+
+.prose a {
+  color: var(--color-text-tertiary);
+}
+
+.prose a:hover {
+  color: var(--color-text-accent);
+}
+
+.prose h1 {
+  color: var(--color-text-primary);
+}
+
+.prose h2 {
+  color: var(--color-text-accent);
+}
+
+.prose h3 {
+  color: var(--color-text-accent);
+}
+
+.prose h4 {
+  color: var(--color-text-accent);
+}
+
+.prose blockquote {
+  color: var(--color-text-tertiary);
+  border-left-width: 0.25rem;
+  border-left-color: var(--color-text-accent);
+}
+
+.prose blockquote p:first-of-type::before {
+  content: "";
+}
+
+.prose blockquote p:last-of-type::after {
+  content: "";
+}
+
+.prose strong {
+  color: var(--color-text-tertiary);
+}
+
+.prose th {
+  color: var(--color-table-header);
+}
+
+.prose code {
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+}
+
+.prose code::before {
+  content: "";
+}
+
+.prose code::after {
+  content: "";
+}
+
 .accent-gradient {
   background: var(--color-bg-accent);
-  background: -moz-linear-gradient(
-    45deg,
-    var(--color-gradient-accent2) 0%,
-    var(--color-gradient-accent1) 100%
-  );
-  background: -webkit-linear-gradient(
-    45deg,
-    var(--color-gradient-accent2) 0%,
-    var(--color-gradient-accent1) 100%
-  );
-  background: linear-gradient(
-    45deg,
-    var(--color-gradient-accent2) 0%,
-    var(--color-gradient-accent1) 100%
-  );
+  background: -moz-linear-gradient(45deg,
+      var(--color-gradient-accent2) 0%,
+      var(--color-gradient-accent1) 100%);
+  background: -webkit-linear-gradient(45deg,
+      var(--color-gradient-accent2) 0%,
+      var(--color-gradient-accent1) 100%);
+  background: linear-gradient(45deg,
+      var(--color-gradient-accent2) 0%,
+      var(--color-gradient-accent1) 100%);
   background-size: 200%;
   transition: background-position 0.5s ease-out;
 }
