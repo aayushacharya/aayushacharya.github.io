@@ -29,7 +29,8 @@ const getTocEntries = items => {
 }
 
 const Toc = ({ items }) => {
-  const itemsWithIntroduction = [...items]
+  const safeItems = Array.isArray(items) ? items : []
+  const itemsWithIntroduction = [...safeItems]
   itemsWithIntroduction.unshift({
     title: "Introduction",
     url: "#introduction",
