@@ -23,7 +23,7 @@
     "gatsby-remark-autolink-headers": "^6.15.0",
     "gatsby-remark-images": "^7.15.0",
     "gatsby-remark-prismjs": "^7.15.0",
-    "gatsby-source-filesystem": "^5.15.0",
+    "gatsby-source-filesystem": "^5.16.0",
     "gatsby-transformer-sharp": "^5.15.0",
     "highlight": "^0.2.4",
     "prismjs": "^1.30.0",
