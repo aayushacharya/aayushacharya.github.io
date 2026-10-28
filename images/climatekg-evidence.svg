@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">ClimateKG: a graph of connected climate evidence</title>
+  <desc id="description">An illustrative path connects CESM2 to its component CAM6 and CAM6 to the atmosphere realm. A supporting paper and passage provide evidence for literature-derived relationships.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#55c6b4"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" rx="24" fill="#17242f"/>
+  <g font-family="DejaVu Sans, Arial, sans-serif">
+    <text x="64" y="82" fill="#81e6d9" font-size="42" font-weight="700">ClimateKG</text>
+    <text x="64" y="126" fill="#e4edf3" font-size="25">Connecting climate models, papers, and evidence</text>
+
+    <g fill="none" stroke="#55c6b4" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M 310 281 H 470"/>
+      <path d="M 730 281 H 890"/>
+    </g>
+    <g fill="#d1dfe8" font-size="18" text-anchor="middle">
+      <text x="390" y="247">has component</text>
+      <text x="810" y="247">applies to realm</text>
+    </g>
+
+    <g fill="#243744" stroke="#4b6575" stroke-width="2">
+      <rect x="64" y="208" width="246" height="146" rx="18"/>
+      <rect x="478" y="208" width="252" height="146" rx="18"/>
+      <rect x="898" y="208" width="238" height="146" rx="18"/>
+    </g>
+    <g text-anchor="middle">
+      <g fill="#9eb5c5" font-size="19">
+        <text x="187" y="247">CLIMATE MODEL</text>
+        <text x="604" y="247">COMPONENT</text>
+        <text x="1017" y="247">REALM</text>
+      </g>
+      <g fill="#f0f7fa" font-size="36" font-weight="700">
+        <text x="187" y="297">CESM2</text>
+        <text x="604" y="297">CAM6</text>
+        <text x="1017" y="297">atmos</text>
+      </g>
+      <g fill="#c4d4de" font-size="18">
+        <text x="187" y="328">Source</text>
+        <text x="604" y="328">SourceComponent</text>
+        <text x="1017" y="328">Atmosphere</text>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#8bacc0" stroke-width="2" stroke-dasharray="6 7">
+      <path d="M 390 301 V 405 H 810 V 301"/>
+      <path d="M 600 405 V 450"/>
+    </g>
+    <rect x="250" y="450" width="700" height="100" rx="16" fill="#213e40" stroke="#55c6b4" stroke-width="2"/>
+    <g text-anchor="middle">
+      <text x="600" y="491" fill="#d5fff2" font-size="25" font-weight="600">Source paper + supporting passage</text>
+      <text x="600" y="524" fill="#b9d8d4" font-size="20">A route back to the evidence behind a relationship</text>
+      <text x="600" y="597" fill="#a5bdcd" font-size="18">Illustration from the paper · aayushacharya.com.np</text>
+    </g>
+  </g>
+</svg>
