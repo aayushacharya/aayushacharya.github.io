@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import { getSrc } from "gatsby-plugin-image"
 
-function Seo({ description, lang, meta, title, blog, ogImage }) {
+function Seo({ description, lang, meta, title, blog, ogImage, pathname }) {
   const { site, image, blogImage } = useStaticQuery(
     graphql`
       query {
@@ -53,7 +53,7 @@ function Seo({ description, lang, meta, title, blog, ogImage }) {
       ? ogImage || getSrc(blogImage.childImageSharp.gatsbyImageData)
       : getSrc(image.childImageSharp.gatsbyImageData)
       }`,
-    url: `${siteUrl}`,
+    url: new URL(pathname, siteUrl).href,
   }
 
   return (
@@ -63,8 +63,11 @@ function Seo({ description, lang, meta, title, blog, ogImage }) {
       }}
       title={seo.title}
       titleTemplate={seo.titleTemplate}
-      httpEquiv={"Content-Security-Policy"}
       meta={[
+        {
+          "http-equiv": `Content-Security-Policy`,
+          content: `upgrade-insecure-requests`,
+        },
         {
           name: `description`,
           content: seo.description,
@@ -123,10 +126,6 @@ function Seo({ description, lang, meta, title, blog, ogImage }) {
           name: seo.title,
         })}
       </script>
-      <meta
-        httpEquiv="Content-Security-Policy"
-        content="upgrade-insecure-requests"
-      />
     </Helmet>
   )
 }
@@ -135,6 +134,7 @@ Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  pathname: `/`,
 }
 
 Seo.propTypes = {
@@ -142,6 +142,7 @@ Seo.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
+  pathname: PropTypes.string,
 }
 
 export default Seo

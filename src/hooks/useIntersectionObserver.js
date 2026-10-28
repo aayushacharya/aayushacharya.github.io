@@ -23,7 +23,7 @@ function useIntersectNode(items, rootMargin, threshold) {
 
       items.forEach(item => {
         if (item !== "#") {
-          let target = document.querySelector(item)
+          const target = document.getElementById(item.slice(1))
           if (target) observer.current.observe(target)
         }
       })
