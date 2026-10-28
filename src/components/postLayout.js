@@ -17,14 +17,15 @@ const shortcodes = {
 }
 
 
-const PostLayout = ({ data: { mdx, ogImage }, children }) => {
+const PostLayout = ({ data: { mdx, ogImage }, children, location }) => {
   return (
     <Layout activePage="blog">
       <Seo
         blog
         title={mdx.frontmatter.title}
-        description={mdx.excerpt}
+        description={mdx.frontmatter.description || mdx.excerpt}
         ogImage={ogImage && getSrc(ogImage.childImageSharp.gatsbyImageData)}
+        pathname={location?.pathname}
       />
       <div className="flex justify-between mt-10 mb-10 relative">
         <article className="prose sm:prose md:prose-lg min-w-0 max-w-none tracking-normal">
